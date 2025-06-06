@@ -61,7 +61,7 @@ const PlaceOrder = () => {
           if (data.success) {//payment is successful and it is verified
             navigate("/orders")
             setCartItems({})//set cart items to empty {}
-            
+            toast.success("Order placed successfully")
           }
 
         } catch (error) {
@@ -122,6 +122,7 @@ const PlaceOrder = () => {
           if (response.data.success) {//when this is true, cart items will be set as empty object
             setCartItems({})//order will be placed and we are clearing cart data using {}
             navigate('/orders')//navigate users on orders page
+            toast.success("Order placed successfully")
           }else{//order is not placed
             toast.error(response.data.message)
           }

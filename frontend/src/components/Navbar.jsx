@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import {assets} from "../assets/assets"
 import {Link, NavLink} from "react-router-dom"
 import { ShopContext } from '../context/ShopContext'
+// import toast from "react-toastify"
 
 const Navbar = () => {
 
@@ -10,11 +11,13 @@ const Navbar = () => {
 
   {/* now we will add logout functionality */}
   const logout=()=>{
-    navigate("/login")//navigate user on login page
+    toast.success("Logged out successfully")
+    navigate("/login")//navi
+    // gate user on login page
     localStorage.removeItem("token")//remove token from localstorage, key name="token"
     setToken('')//clear state variable
     setCartItems({})//when we are loggedout we will clear cart item
-   
+  
   }
 
   return (

@@ -89,7 +89,7 @@ const Orders = ({token}) => {//get token from props and with that we will create
             {/* create functionality so that when we change status of any order, then that status will be saved in db and when user will click on track button, then it will refresh order status in this user's myOrders page */}
             {/* after adding value, it will display current status */}
             {/* link function with select tag, pass and take select tag event and in the function we have to provide event(we will get from arrow function below) and orderId(to get this add order._id) */}
-            <select onChange={(event)=>statusHandler(event,order._id)} value={order.status} className='p-2 font-semibold'>
+            <select onChange={(event)=>statusHandler(event,order._id, toast.success("Order status updated successfully!"))} value={order.status} className='p-2 font-semibold'>
             {/* add order status here, whenever new order will be placed, status will be order placed */}
             
               <option value="Order Placed">Order Placed</option>

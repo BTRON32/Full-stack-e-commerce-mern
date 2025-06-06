@@ -3,6 +3,7 @@ import { ShopContext } from '../context/ShopContext'
 import Title from "../components/Title"
 import { assets, products } from '../assets/assets'
 import CartTotal from '../components/CartTotal'
+import { toast } from 'react-toastify'
 
 const Cart = () => {
 
@@ -59,10 +60,10 @@ const Cart = () => {
                   </div>
                 </div>
                 {/* we will use an event so we will get value of input field, add logic so that if our input field value is empty or 0, in that case we will not execute updateQuantity function */}
-                <input onChange={(e) => e.target.value === '' || e.target.value === '0' ? null : updateQuantity(item._id, item.size, Number(e.target.value))} className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1' type="number" min={1} defaultValue={item.quantity} />
+                <input onChange={(e) => e.target.value === '' || e.target.value === '0' ? null : updateQuantity(item._id, item.size, Number(e.target.value, toast.success("Cart Quantity updated successfully!")))} className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1' type="number" min={1} defaultValue={item.quantity} />
                 {/* functionality so that when we click on bin icon, we will delete that data, removing item form cartData */}
                 {/* we need quantity in number format but in input we are getting it in string format */}
-                <img onClick={() => updateQuantity(item._id, item.size, 0)} className='w-4 mr-4 sm:w-5 cursor-pointer' src={assets.bin_icon} alt="" />
+                <img onClick={() => updateQuantity(item._id, item.size, 0, toast.success("Product removed from cart!"))} className='w-4 mr-4 sm:w-5 cursor-pointer' src={assets.bin_icon} alt="" />
               </div>
             )
           })
