@@ -11,13 +11,12 @@ const Navbar = () => {
 
   {/* now we will add logout functionality */}
   const logout=()=>{
-    toast.success("Logged out successfully")
     navigate("/login")//navi
     // gate user on login page
     localStorage.removeItem("token")//remove token from localstorage, key name="token"
     setToken('')//clear state variable
     setCartItems({})//when we are loggedout we will clear cart item
-  
+    toast.success("Logged out successfully")
   }
 
   return (
