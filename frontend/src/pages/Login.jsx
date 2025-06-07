@@ -27,7 +27,7 @@ const Login = () => {
           setToken(response.data.token)//it will store token in token state variable
           //store same token in localstorage 
           localStorage.setItem("token",response.data.token)//key name="token", also add response.data.token
-          toast.success("Account created successfully!")
+          toast.success("User account created successfully!")
         }else{
           toast.error(response.data.message)
         }
@@ -39,7 +39,7 @@ const Login = () => {
         if (response.data.success) {
           setToken(response.data.token)//set token in token state
           localStorage.setItem("token",response.data.token)
-           toast.success("Logged in successfully!")
+           toast.success("User logged in successfully!")
         }else{
           toast.error(response.data.message)
         }
