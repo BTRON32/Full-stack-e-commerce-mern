@@ -24,7 +24,7 @@ const Login = ({setToken}) => {//destructured from app component(passed as prop 
             //now we will store this token in token state
             if (response.data.success) {//it means our authentication is successful and we are getting one token, we have to save token in state variable we have created in app component
                 setToken(response.data.token)
-                toast.success("Admin Logged in successfully!")
+                toast.success("Admin logged in successfully!")
             }
             else{//if response.data is false, we will get one message which we will display in notification
                 toast.error(response.data.message)
